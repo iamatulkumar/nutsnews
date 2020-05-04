@@ -1,0 +1,39 @@
+ext {
+
+    final def vJwRetrofitRxJavaAdapter = '1.0.0'
+    final def vOkHttp = '3.11.0'
+    final def vRetrofit = '2.4.0'
+    final def vDagger = '2.21'
+    final def vRoom = '2.2.1'
+
+    networkDependencies = [
+            retrofit               : "com.squareup.retrofit2:converter-gson:$vRetrofit",
+            retrofitRxJavaAdapter  : "com.squareup.retrofit2:adapter-rxjava2:$vRetrofit",
+            retrofitGsonConverter  : "com.squareup.retrofit2:converter-gson:$vRetrofit",
+            jwRetrofitRxJavaAdapter: "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$vJwRetrofitRxJavaAdapter",
+            okHttp3                : "com.squareup.okhttp3:okhttp:$vOkHttp",
+            okHttp3Logging         : "com.squareup.okhttp3:logging-interceptor:$vOkHttp"
+    ]
+
+    dagger = [
+            dagger              : "com.google.dagger:dagger:$vDagger",
+            daggerCompiler      : "com.google.dagger:dagger-compiler:$vDagger",
+            daggerProcessor     : "com.google.dagger:dagger-android-processor:$vDagger",
+            daggerAndroid       : "com.google.dagger:dagger-android:$vDagger",
+            daggerAndroidSupport: "com.google.dagger:dagger-android-support:$vDagger"
+    ]
+
+    room = [
+            room                : "androidx.room:room-runtime:$vRoom",
+            roomRxJava          : "android.arch.persistence.room:rxjava2:$vRoom",
+            roomCompiler        : "androidx.room:room-compiler:$vRoom",
+    ]
+
+    allImplementation = [
+            networkDependencies: networkDependencies.values(),
+            dagger             : dagger.values(),
+            room               : room.values()
+    ]
+
+}
+
